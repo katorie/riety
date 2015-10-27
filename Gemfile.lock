@@ -12,22 +12,30 @@ GEM
     json (1.8.3)
     mem (0.1.5)
     minitest (5.8.2)
+    pusher-client (0.6.2)
+      json
+      websocket (~> 1.0)
     ruboty (1.2.2)
       activesupport
       bundler
       dotenv
       mem
       slop
+    ruboty-idobata (0.0.5)
+      pusher-client
+      ruboty
     slop (4.2.0)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    websocket (1.2.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   ruboty
+  ruboty-idobata
 
 BUNDLED WITH
    1.10.6
