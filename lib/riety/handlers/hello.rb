@@ -1,6 +1,6 @@
-module Ruboty
+module Riety
   module Handlers
-    class Hello < Base
+    class Hello < Ruboty::Handlers::Base
       on /hello/, name: 'hello', description: 'greet'
 
       def hello(message)
