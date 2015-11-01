@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'ruboty'
-require './lib/ruboty/handlers/hello'
+require './test/test_helper'
 
 class HelloTest < Minitest::Test
   def setup
