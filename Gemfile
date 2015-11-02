@@ -3,7 +3,7 @@ source "https://rubygems.org"
 
 ruby '2.2.3'
 gem 'ruboty'
-gem 'ruboty-idobata'
+gem 'ruboty-idobata', group: :production
 
 group :development, :test do
   gem 'byebug'
