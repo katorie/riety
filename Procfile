@@ -1,1 +1,1 @@
-bot: bundle exec ruboty -l init.rb
+bot: bundle exec ruboty --dotenv -l init.rb
