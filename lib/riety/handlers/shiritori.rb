@@ -5,7 +5,7 @@ module Riety
 
       def shiritori(message)
         #FIXME: 引数の一番最後の文字を綺麗に取得する方法がわからなかった
-        shiri = message.original[:body][-1]
+        shiri = message.body[-1]
         if shiri == 'り'
           message.reply '理論'
         else
