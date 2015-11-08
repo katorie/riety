@@ -1,15 +1,18 @@
+require 'yaml'
+
 module Riety
   module Handlers
     class Shiritori < Ruboty::Handlers::Base
-      on /shiritori/, name: 'shiritori', description: 'しりとり'
+      on /shiritori/, name: 'shiritori', description: "しりとり (例: #{ENV['ROBOT_NAME']} shiritori うみほたる)"
 
       def shiritori(message)
-        #FIXME: 引数の一番最後の文字を綺麗に取得する方法がわからなかった
-        shiri = message.body[-1]
-        if shiri == 'り'
-          message.reply '理論'
+        words = YAML.load_file(
+          File.join(File.expand_path('../../db', __FILE__),
+                    'words.yml'))
+        if word = words[message.body[-1]]
+          message.reply word
         else
-          message.reply 'えーそんな言葉わかんない...'
+          message.reply 'えーひらがなで言ってくれないとわかんない...'
         end
       end
     end
