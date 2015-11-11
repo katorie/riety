@@ -12,4 +12,5 @@ end
 
 group :test do
   gem 'minitest'
+  gem 'fakeredis', require: 'fakeredis/minitest'
 end
