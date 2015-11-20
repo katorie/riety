@@ -10,7 +10,11 @@ module Riety
           File.join(File.expand_path('../../db', __FILE__),
                     'words.yml'))
         if word = words[message.body[-1]]
-          message.reply word
+          if word.is_a? Array
+            message.reply word.sample
+          else
+            message.reply word
+          end
         else
           message.reply 'えーひらがなで言ってくれないとわかんない...'
         end
