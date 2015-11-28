@@ -16,6 +16,12 @@ class ShiritoriTest < Minitest::Test
     end
   end
 
+  def test_shiritori_executes_with_the_last_word_given
+    %w(shiritori しりとり).each do |command|
+      assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command} ちーず まめだいふく えいわ", from: @from, to: @to }
+    end
+  end
+
   def test_shiritori_cannot_understand_non_hiragana_word
     %w[shiritori しりとり].each do |command|
       @said = "@ruboty #{command} ...a"
