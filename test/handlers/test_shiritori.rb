@@ -33,4 +33,12 @@ class ShiritoriTest < Minitest::Test
       assert_output(/^なんか言ってくれないとしりとりできない...$/) { @bot.receive body: @said, from: @from, to: @to }
     end
   end
+
+  def test_shiritori_should_not_allow_to_contain_invalid_characters
+    %w(shiritori しりとり).each do |command|
+      assert_silent { @bot.receive body: "@ruboty #{command}あ はにわ", from: @from, to: @to }
+
+      assert_silent { @bot.receive body: "@ruboty あ#{command} はにわ", from: @from, to: @to }
+    end
+  end
 end
