@@ -8,7 +8,7 @@ module Riety
         return message.reply '名前を指定してください＼(^o^)／' unless name
         return message.reply member_list if name == 'list'
 
-        msg = get_massage_from(who: name)
+        msg = massage_from(who: name)
         if msg
           message.reply msg
         else
@@ -21,7 +21,7 @@ module Riety
           YAML.load_file(file_path).keys
         end
 
-        def get_massage_from(who: )
+        def massage_from(who: )
           @messages ||= YAML.load_file(file_path)
           @messages[who]
         end
