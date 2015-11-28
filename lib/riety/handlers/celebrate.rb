@@ -7,7 +7,12 @@ module Riety
         name = message.body.split(' ')[2]
         return message.reply '名前を指定してください＼(^o^)／' unless name
 
-        message.reply get_massage_from(who: name)
+        msg = get_massage_from(who: name)
+        if msg
+          message.reply msg
+        else
+          message.reply "#{name} さんからはまだメッセージが来てないようですね :santa:"
+        end
       end
 
       private
