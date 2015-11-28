@@ -5,6 +5,9 @@ Riety is ruboty bot.
 # Development
 
 ```
+# Prepare
+$ brew install redis
+$ redis-server &
 # After clone this repository
 % bundle install
 % bundle exec ruboty -l init.rb --dotenv
