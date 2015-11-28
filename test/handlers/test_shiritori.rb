@@ -8,18 +8,22 @@ class ShiritoriTest < Minitest::Test
   end
 
   def test_shiritori_should_return_expected_reply_which_ends_shiritori
-    @said = '@ruboty shiritori ...あ'
-    assert_output(/^アサーション$/) { @bot.receive body: @said, from: @from, to: @to }
-    @said = '@ruboty shiritori ...わ'
-    assert_output(/^ワッペン$/) { @bot.receive body: @said, from: @from, to: @to }
+    %w[shiritori しりとり].each do |command|
+      @said = "@ruboty #{command} ...あ"
+      assert_output(/^アサーション$/) { @bot.receive body: @said, from: @from, to: @to }
+      @said = "@ruboty #{command} ...わ"
+      assert_output(/^ワッペン$/) { @bot.receive body: @said, from: @from, to: @to }
+    end
   end
 
   def test_shiritori_cannot_understand_non_hiragana_word
-    @said = '@ruboty shiritori ...a'
-    assert_output(/^えーひらがなで言ってくれないとわかんない...$/) { @bot.receive body: @said, from: @from, to: @to }
-    @said = '@ruboty shiritori ...1'
-    assert_output(/^えーひらがなで言ってくれないとわかんない...$/) { @bot.receive body: @said, from: @from, to: @to }
-    @said = '@ruboty shiritori ...亜'
-    assert_output(/^えーひらがなで言ってくれないとわかんない...$/) { @bot.receive body: @said, from: @from, to: @to }
+    %w[shiritori しりとり].each do |command|
+      @said = "@ruboty #{command} ...a"
+      assert_output(/^えーひらがなで言ってくれないとわかんない...$/) { @bot.receive body: @said, from: @from, to: @to }
+      @said = "@ruboty #{command} ...1"
+      assert_output(/^えーひらがなで言ってくれないとわかんない...$/) { @bot.receive body: @said, from: @from, to: @to }
+      @said = "@ruboty #{command} ...亜"
+      assert_output(/^えーひらがなで言ってくれないとわかんない...$/) { @bot.receive body: @said, from: @from, to: @to }
+    end
   end
 end
