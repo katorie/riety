@@ -5,6 +5,9 @@ Riety is ruboty bot.
 # Development
 
 ```
+# Prepare
+$ brew install redis
+$ redis-server &
 # After clone this repository
 % bundle install
 % bundle exec ruboty -l init.rb --dotenv
@@ -35,3 +38,10 @@ Execute `test_*.rb` files in `test` dir.
 % heroku create
 % git push heroku master
 ```
+
+# Heroku
+
+We use follow heroku add-ons.
+- Heroku Redis :: Redis
+- Papertrail
+- Deploy Hooks for GitHub
