@@ -7,9 +7,19 @@ module Riety
         name = message.body.split(' ')[2]
         return message.reply '名前を指定してください＼(^o^)／' unless name
 
-        message.reply name
-        # name の人のメッセージを表示する
+        message.reply get_massage_from(who: name)
       end
+
+      private
+
+        def get_massage_from(who: 'サンプル')
+          @messages ||= YAML.load_file(file_path)
+          @messages[who]
+        end
+
+        def file_path
+          File.join(File.expand_path('../../db', __FILE__), 'celebrate.yml')
+        end
     end
   end
 end
