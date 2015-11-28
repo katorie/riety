@@ -1,24 +1,33 @@
+GIT
+  remote: git://github.com/ta1kt0me/ruboty-idobata.git
+  revision: 614d3c5e555d1e026fe01f28dbe8dbbe3a192277
+  ref: 614d3c5e555d1e026fe01f28dbe8dbbe3a192277
+  specs:
+    ruboty-idobata (0.0.5)
+      pusher-client
+      ruboty
+
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.4)
+    activesupport (4.2.5)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    byebug (6.0.2)
+    byebug (8.2.1)
     dotenv (2.0.2)
     fakeredis (0.5.0)
       redis (~> 3.0)
     i18n (0.7.0)
     json (1.8.3)
     mem (0.1.5)
-    minitest (5.8.2)
+    minitest (5.8.3)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
-    redis (3.2.1)
+    redis (3.2.2)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
     ruboty (1.2.2)
@@ -27,14 +36,11 @@ GEM
       dotenv
       mem
       slop
-    ruboty-idobata (0.0.5)
-      pusher-client
-      ruboty
     ruboty-redis (0.0.6)
       redis
       redis-namespace
       ruboty
-    slop (4.2.0)
+    slop (4.2.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -48,7 +54,7 @@ DEPENDENCIES
   fakeredis
   minitest
   ruboty
-  ruboty-idobata
+  ruboty-idobata!
   ruboty-redis
 
 BUNDLED WITH
