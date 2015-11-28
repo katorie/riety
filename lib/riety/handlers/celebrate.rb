@@ -21,7 +21,7 @@ module Riety
           YAML.load_file(file_path).keys
         end
 
-        def get_massage_from(who: 'サンプル')
+        def get_massage_from(who: )
           @messages ||= YAML.load_file(file_path)
           @messages[who]
         end
