@@ -38,3 +38,10 @@ Execute `test_*.rb` files in `test` dir.
 % heroku create
 % git push heroku master
 ```
+
+# Heroku
+
+We use follow heroku add-ons.
+- Heroku Redis :: Redis
+- Papertrail
+- Deploy Hooks for GitHub
