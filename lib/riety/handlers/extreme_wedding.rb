@@ -5,7 +5,7 @@ module Riety
 
       def extreme_wedding(message)
         res =<<-EOF
-<div class=“center”>
+<div class="center">
 <span class="fa fa-spin">:bouquet:
 <span class="fa fa-spin">:christmas_tree:
 <span class="fa fa-spin">:bell:
@@ -34,7 +34,7 @@ module Riety
 <span class="fa fa-spin">:bell:
 <span class="fa fa-spin">:christmas_tree:
 <span class="fa fa-spin">:bouquet:
-</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></div>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></div>
         EOF
         message.reply res
       end
