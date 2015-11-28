@@ -3,7 +3,7 @@ require 'yaml'
 module Riety
   module Handlers
     class Shiritori < Ruboty::Handlers::Base
-      on /shiritori|しりとり/, name: 'shiritori', description: "しりとり (例: @#{ENV['ROBOT_NAME']} shiritori うみほたる、@#{ENV['ROBOT_NAME']} しりとり はんばーぐ)"
+      on /(shiritori|しりとり)\s.+\z/, name: 'shiritori', description: "しりとり (例: @#{ENV['ROBOT_NAME']} shiritori うみほたる、@#{ENV['ROBOT_NAME']} しりとり はんばーぐ)"
 
       def shiritori(message)
         if message.body.split(/\s|　/).count == 2
