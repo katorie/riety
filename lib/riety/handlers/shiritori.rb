@@ -6,19 +6,25 @@ module Riety
       on /shiritori/, name: 'shiritori', description: "しりとり (例: #{ENV['ROBOT_NAME']} shiritori うみほたる)"
 
       def shiritori(message)
-        words = YAML.load_file(
-          File.join(File.expand_path('../../db', __FILE__),
-                    'words.yml'))
-        if word = words[message.body[-1]]
-          if word.is_a? Array
-            message.reply word.sample
-          else
-            message.reply word
-          end
+        word = words[message.body[-1]]
+        return message.reply 'えーひらがなで言ってくれないとわかんない...' unless word
+
+        if word.is_a? Array
+          message.reply word.sample
         else
-          message.reply 'えーひらがなで言ってくれないとわかんない...'
+          message.reply word
         end
       end
+
+      private
+
+        def words
+          @words ||= YAML.load_file(file_path)
+        end
+
+        def file_path
+          File.join(File.expand_path('../../db', __FILE__), 'words.yml')
+        end
     end
   end
 end
