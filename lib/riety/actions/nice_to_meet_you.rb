@@ -19,9 +19,9 @@ module Riety
       def nice_to_meet_you
         case message.from_name
         when 'katorie'
-          res = <<-EOF
+          res = <<-"EOF"
 @#{message.from_name}
-<span class="fa fa-spin">:bouquet:</span><span class="fa fa-spin">:christmas_tree:</span><span class="fa fa-spin">:bell:</span>:confetti_ball: :wedding: :rocket:<span class="fa fa-spin">:bell:</span><span class="fa fa-spin">:gift_heart:</span><span class="fa fa-spin">:bouquet:</span>
+<span class='fa fa-spin'>:bouquet:</span><span class='fa fa-spin'>:christmas_tree:</span><span class='fa fa-spin'>:bell:</span>:confetti_ball: :wedding: :rocket:<span class='fa fa-spin'>:bell:</span><span class='fa fa-spin'>:gift_heart:</span><span class='fa fa-spin'>:bouquet:</span>
           EOF
           message.reply res
         else
