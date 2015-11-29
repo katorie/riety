@@ -1,8 +1,11 @@
 require 'minitest/autorun'
 require 'byebug'
 require 'ruboty'
+require 'ruboty/redis'
 require 'fakeredis'
 require './init'
+
+Dotenv.load
 
 module Riety
   module Test

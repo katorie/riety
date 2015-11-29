@@ -4,7 +4,7 @@ require 'byebug'
 class ExtremeWeddingTest < Minitest::Test
   def setup
     super
-    @said = '@ruboty extreme wedding'
+    @said = '@riety extreme wedding'
   end
 
   def test_extreme_wedding

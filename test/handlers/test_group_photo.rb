@@ -3,7 +3,7 @@ require './test/test_helper'
 class GroupPhotoTest < Minitest::Test
   def setup
     super
-    @said = '@ruboty group photo'
+    @said = '@riety group photo'
   end
 
   def test_gruop_photo_return_image_url
