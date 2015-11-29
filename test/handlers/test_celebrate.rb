@@ -2,9 +2,7 @@ require './test/test_helper.rb'
 
 class CelebrateTest < Minitest::Test
   def setup
-    @bot = ::Ruboty::Robot.new
-    @to = '#general'
-    @from = 'alice'
+    super
   end
 
   def test_celebrate_should_return_message_by_name

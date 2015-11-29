@@ -2,9 +2,7 @@ require './test/test_helper'
 
 class ShiritoriTest < Minitest::Test
   def setup
-    @bot = ::Ruboty::Robot.new
-    @to = '#general'
-    @from = 'alice'
+    super
   end
 
   def test_shiritori_should_return_expected_reply_which_ends_shiritori
