@@ -1,6 +1,6 @@
 module Riety
   module Handlers
-    class GroupPhoto < Ruboty::Handlers::Base
+    class Memory < Ruboty::Handlers::Base
       on(
         /memory\z/,
         name: 'memory',

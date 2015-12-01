@@ -1,6 +1,6 @@
 require './test/test_helper'
 
-class GroupPhotoTest < Minitest::Test
+class MemoryTest < Minitest::Test
   def setup
     super
     @said = '@ruboty memory'
