@@ -6,6 +6,10 @@ module Riety
       on /shiritori|しりとり/, name: 'shiritori', description: "しりとり (例: @#{ENV['ROBOT_NAME']} shiritori うみほたる、@#{ENV['ROBOT_NAME']} しりとり はんばーぐ)"
 
       def shiritori(message)
+        if message.body.split(/\s|　/).count == 2
+          return message.reply 'なんか言ってくれないとしりとりできない...'
+        end
+
         word = words[message.body[-1]]
         return message.reply 'えーひらがなで言ってくれないとわかんない...' unless word
 
