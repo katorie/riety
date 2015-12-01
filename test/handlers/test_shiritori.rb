@@ -27,7 +27,7 @@ class ShiritoriTest < Minitest::Test
     end
   end
 
-  def test_shiritori_should_return_argument_error_rack_word
+  def test_shiritori_should_return_argument_error_lack_word
     %w[shiritori しりとり].each do |command|
       @said = "@ruboty #{command}"
       assert_output(/^なんか言ってくれないとしりとりできない...$/) { @bot.receive body: @said, from: @from, to: @to }
