@@ -15,7 +15,11 @@ module Riety
       private
 
         def photo_urls
-          ['http://magazine.rubyist.net/?c=plugin;plugin=attach_download;p=0050-YochiyochiRbLtEventReport;file_name=Gathering.JPG']
+           [
+             "http://magazine.rubyist.net/?c=plugin;plugin=attach_download;p=0050-YochiyochiRbLtEventReport;file_name=Gathering.JPG",
+             "https://idobata.s3.amazonaws.com/uploads/attachment/image/312020/00e76a96-cec9-4a88-9867-9f976809fc11/image__1_.jpg",
+             "https://idobata.s3.amazonaws.com/uploads/attachment/image/312021/b8ee7382-bdff-4465-896f-6ded3894db57/B081BigCYAAt1Hj.jpg-large.jpeg"
+           ]
         end
     end
   end
