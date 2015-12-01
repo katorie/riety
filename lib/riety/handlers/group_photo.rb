@@ -2,13 +2,13 @@ module Riety
   module Handlers
     class GroupPhoto < Ruboty::Handlers::Base
       on(
-        /group photo\z/,
-        name: 'group_photo',
-        command: 'group_photo',
-        description: 'Display group photo at random'
+        /memory\z/,
+        name: 'memory',
+        command: 'memory',
+        description: 'Display yochiyochi memory at random'
       )
 
-      def group_photo(message)
+      def memory(message)
         message.reply photo_urls.sample
       end
 
