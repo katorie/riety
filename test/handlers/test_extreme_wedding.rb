@@ -3,10 +3,8 @@ require 'byebug'
 
 class ExtremeWeddingTest < Minitest::Test
   def setup
-    @bot = ::Ruboty::Robot.new
-    @to = '#general'
-    @from = 'alice'
-    @said = '@ruboty extreme wedding'
+    super
+    @said = '@riety extreme wedding'
   end
 
   def test_extreme_wedding

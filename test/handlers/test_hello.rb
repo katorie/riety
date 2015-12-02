@@ -2,10 +2,8 @@ require './test/test_helper'
 
 class HelloTest < Minitest::Test
   def setup
-    @bot = ::Ruboty::Robot.new
-    @to = '#general'
-    @from = 'alice'
-    @said = '@ruboty hello'
+    super
+    @said = '@riety hello'
   end
 
   def test_hello

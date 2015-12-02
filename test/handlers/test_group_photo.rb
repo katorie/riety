@@ -2,10 +2,8 @@ require './test/test_helper'
 
 class GroupPhotoTest < Minitest::Test
   def setup
-    @bot = ::Ruboty::Robot.new
-    @to = '#general'
-    @from = 'alice'
-    @said = '@ruboty group photo'
+    super
+    @said = '@riety group photo'
   end
 
   def test_gruop_photo_return_image_url

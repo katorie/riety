@@ -2,10 +2,12 @@ require './test/test_helper'
 
 class NiceToMeetYouTest < Minitest::Test
   def setup
-    @bot = ::Ruboty::Robot.new
-    @to = '#general'
-    @from = 'alice'
+    super
     @said = 'hi'
+  end
+
+  def after_setup
+    @bot.brain.data[:customers] = []
   end
 
   def test_nice_to_meet_you
