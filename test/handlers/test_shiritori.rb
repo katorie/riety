@@ -33,16 +33,16 @@ class ShiritoriTest < Minitest::Test
 
   def test_shiritori_should_return_argument_error_lack_word
     %w[shiritori しりとり].each do |command|
-      @said = "@ruboty #{command}"
+      @said = "@riety #{command}"
       assert_output(/^なんか言ってくれないとしりとりできない...$/) { @bot.receive body: @said, from: @from, to: @to }
     end
   end
 
   def test_shiritori_should_not_allow_to_contain_invalid_characters
     %w(shiritori しりとり).each do |command|
-      assert_silent { @bot.receive body: "@ruboty #{command}あ はにわ", from: @from, to: @to }
+      assert_silent { @bot.receive body: "@riety #{command}あ はにわ", from: @from, to: @to }
 
-      assert_silent { @bot.receive body: "@ruboty あ#{command} はにわ", from: @from, to: @to }
+      assert_silent { @bot.receive body: "@riety あ#{command} はにわ", from: @from, to: @to }
     end
   end
 end
