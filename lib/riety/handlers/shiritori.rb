@@ -3,7 +3,7 @@ require 'yaml'
 module Riety
   module Handlers
     class Shiritori < Ruboty::Handlers::Base
-      on /(shiritori|しりとり)((\s|　)+(?<keyword>.+))?\z/, name: 'shiritori', description: "しりとり (例: @#{ENV['ROBOT_NAME']} shiritori うみほたる、@#{ENV['ROBOT_NAME']} しりとり はんばーぐ)"
+      on /(shiritori|しりとり)((\s|　)+|((\s|　)+(?<keyword>.+)))?\z/, name: 'shiritori', description: "しりとり (例: @#{ENV['ROBOT_NAME']} shiritori うみほたる、@#{ENV['ROBOT_NAME']} しりとり はんばーぐ)"
 
       def shiritori(message)
         return message.reply 'なんか言ってくれないとしりとりできない...' unless message[:keyword]
