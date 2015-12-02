@@ -45,4 +45,25 @@ class ShiritoriTest < Minitest::Test
       assert_silent { @bot.receive body: "@riety あ#{command} はにわ", from: @from, to: @to }
     end
   end
+
+  def test_shiritori_should_return_error_when_only_single_space_is_given
+    %w(shiritori しりとり).each do |command|
+      @said = "@riety #{command} "
+      assert_output(/^なんか言ってくれないとしりとりできない...$/) { @bot.receive body: @said, from: @from, to: @to }
+    end
+  end
+
+  def test_shiritori_should_return_error_when_only_continuous_spaces_are_given
+    %w(shiritori しりとり).each do |command|
+      @said = "@riety #{command}  　 "
+      assert_output(/^なんか言ってくれないとしりとりできない...$/) { @bot.receive body: @said, from: @from, to: @to }
+    end
+  end
+
+  def test_shiritori_should_return_expected_word_when_keyword_with_leading_spaces_are_given
+    %w(shiritori しりとり).each do |command|
+      @said = "@riety #{command}  　 こんにちわ"
+      assert_output(/^ワッペン$/) { @bot.receive body: @said, from: @from, to: @to }
+    end
+  end
 end

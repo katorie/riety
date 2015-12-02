@@ -1,7 +1,7 @@
 module Riety
   module Handlers
     class Celebrate < Ruboty::Handlers::Base
-      on /(celebrate|お祝い)((\s|　)+(?<keyword>.+))?\z/, name: 'celebrate', description: "みんなからのお祝い(例: @#{ENV['ROBOT_NAME']} celebrate きたむら) | 名簿を見たかったら list オプション"
+      on /(celebrate|お祝い)((\s|　)+|((\s|　)+(?<keyword>.+)))?\z/, name: 'celebrate', description: "みんなからのお祝い(例: @#{ENV['ROBOT_NAME']} celebrate きたむら) | 名簿を見たかったら list オプション"
 
       def celebrate(message)
         name = message[:keyword]
