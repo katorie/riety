@@ -3,7 +3,7 @@ require './test/test_helper'
 class MemoryTest < Minitest::Test
   def setup
     super
-    @said = '@ruboty memory'
+    @said = '@riety memory'
   end
 
   def test_memory_return_image_url
