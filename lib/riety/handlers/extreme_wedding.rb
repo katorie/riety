@@ -1,7 +1,12 @@
 module Riety
   module Handlers
     class ExtremeWedding < Ruboty::Handlers::Base
-      on /extreme wedding\z/, name: 'extreme_wedding', description: 'Never ending spiral'
+      on(
+        /extreme wedding\z/,
+        name: 'extreme_wedding',
+        command: 'extreme wedding',
+        description: 'Never ending spiral'
+      )
 
       def extreme_wedding(message)
         res =<<-EOF

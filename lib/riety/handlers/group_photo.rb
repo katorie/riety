@@ -1,7 +1,12 @@
 module Riety
   module Handlers
     class GroupPhoto < Ruboty::Handlers::Base
-      on /group photo\z/, name: 'group_photo', description: 'Display group photo at random'
+      on(
+        /group photo\z/,
+        name: 'group_photo',
+        command: 'group_photo',
+        description: 'Display group photo at random'
+      )
 
       def group_photo(message)
         message.reply photo_urls.sample
