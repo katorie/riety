@@ -1,6 +1,6 @@
 require './test/test_helper'
 
-class MemoryTest < Minitest::Test
+class BonjourTest < Minitest::Test
   def setup
     super
     @tweet_messages = [
