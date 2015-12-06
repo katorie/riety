@@ -17,7 +17,9 @@ module Riety
         def data(name)
           File.open(file_path(name)) do |file|
 <<-"EOF"
+```
 #{file.read}
+```
 EOF
           end
         end
