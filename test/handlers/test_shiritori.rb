@@ -7,15 +7,19 @@ class ShiritoriTest < Minitest::Test
   end
 
   def test_shiritori_should_return_expected_reply_which_ends_shiritori
-    @commands.each do |command|
-      assert_output(/^アサーション$/) { @bot.receive body: "@riety #{command} ...あ", from: @from, to: @to }
-      assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command} ...わ", from: @from, to: @to }
+    Riety::Handlers::Shiritori.stub_any_instance(:file_path, file_path) do
+      @commands.each do |command|
+        assert_output(/^アサーション$/) { @bot.receive body: "@riety #{command} ...あ", from: @from, to: @to }
+        assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command} ...わ", from: @from, to: @to }
+      end
     end
   end
 
   def test_shiritori_executes_with_the_last_word_given
-    @commands.each do |command|
-      assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command} ちーず まめだいふく えいわ", from: @from, to: @to }
+    Riety::Handlers::Shiritori.stub_any_instance(:file_path, file_path) do
+      @commands.each do |command|
+        assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command} ちーず まめだいふく えいわ", from: @from, to: @to }
+      end
     end
   end
 
@@ -53,8 +57,19 @@ class ShiritoriTest < Minitest::Test
   end
 
   def test_shiritori_should_return_expected_word_when_keyword_with_leading_spaces_are_given
-    @commands.each do |command|
-      assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command}  　 こんにちわ", from: @from, to: @to }
+    Riety::Handlers::Shiritori.stub_any_instance(:file_path, file_path) do
+      @commands.each do |command|
+        assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command}  　 こんにちわ", from: @from, to: @to }
+      end
     end
   end
+
+  def test_file_path
+    assert((('ぁ'..'ん').to_a.sort - ['ゐ', 'ゑ']), YAML.load_file(Riety::Handlers::Shiritori.new(@bot).send(:file_path)).keys.sort)
+  end
+
+  private
+    def file_path
+      File.join(File.expand_path('../../db', __FILE__), 'words.yml')
+    end
 end

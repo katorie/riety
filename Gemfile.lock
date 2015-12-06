@@ -15,6 +15,7 @@ GEM
     json (1.8.3)
     mem (0.1.5)
     minitest (5.8.3)
+    minitest-stub_any_instance (1.0.1)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -47,6 +48,7 @@ DEPENDENCIES
   byebug
   fakeredis
   minitest
+  minitest-stub_any_instance
   ruboty
   ruboty-idobata
   ruboty-redis

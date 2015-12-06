@@ -12,5 +12,6 @@ end
 
 group :test do
   gem 'minitest'
+  gem 'minitest-stub_any_instance'
   gem 'fakeredis', require: 'fakeredis/minitest'
 end
