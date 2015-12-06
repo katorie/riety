@@ -64,6 +64,10 @@ class ShiritoriTest < Minitest::Test
     end
   end
 
+  def test_file_path
+    assert((('ぁ'..'ん').to_a.sort - ['ゐ', 'ゑ']), YAML.load_file(Riety::Handlers::Shiritori.new(@bot).send(:file_path)).keys.sort)
+  end
+
   private
     def file_path
       File.join(File.expand_path('../../db', __FILE__), 'words.yml')
