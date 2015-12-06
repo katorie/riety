@@ -7,7 +7,7 @@ class ShiritoriTest < Minitest::Test
   end
 
   def test_shiritori_should_return_expected_reply_which_ends_shiritori
-    Riety::Handlers::Shiritori.stub_any_instance(:words, {'わ' => 'ワッペン', 'あ' => 'アサーション'}) do
+    Riety::Handlers::Shiritori.stub_any_instance(:file_path, file_path) do
       @commands.each do |command|
         assert_output(/^アサーション$/) { @bot.receive body: "@riety #{command} ...あ", from: @from, to: @to }
         assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command} ...わ", from: @from, to: @to }
@@ -16,7 +16,7 @@ class ShiritoriTest < Minitest::Test
   end
 
   def test_shiritori_executes_with_the_last_word_given
-    Riety::Handlers::Shiritori.stub_any_instance(:words, {'わ' => 'ワッペン'}) do
+    Riety::Handlers::Shiritori.stub_any_instance(:file_path, file_path) do
       @commands.each do |command|
         assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command} ちーず まめだいふく えいわ", from: @from, to: @to }
       end
@@ -57,10 +57,15 @@ class ShiritoriTest < Minitest::Test
   end
 
   def test_shiritori_should_return_expected_word_when_keyword_with_leading_spaces_are_given
-    Riety::Handlers::Shiritori.stub_any_instance(:words, {'わ' => 'ワッペン'}) do
+    Riety::Handlers::Shiritori.stub_any_instance(:file_path, file_path) do
       @commands.each do |command|
         assert_output(/^ワッペン$/) { @bot.receive body: "@riety #{command}  　 こんにちわ", from: @from, to: @to }
       end
     end
   end
+
+  private
+    def file_path
+      File.join(File.expand_path('../../db', __FILE__), 'words.yml')
+    end
 end
