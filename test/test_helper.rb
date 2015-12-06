@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/stub_any_instance'
 require 'byebug'
 require 'ruboty'
 require 'ruboty/redis'
