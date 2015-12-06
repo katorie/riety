@@ -7,8 +7,8 @@ class TestAsciiArt < Minitest::Test
   end
 
   def test_ascii_art
-    Riety::Handlers::AsciiArt.new(@bot).stub_any_instance(:file_path, file_path(@art)) do
-      aa = <<-"EOF"
+    Riety::Handlers::AsciiArt.stub_any_instance(:file_path, file_path(@art)) do
+      aa = <<-'EOF'
 ```
 __________.__        __
 \______   \__| _____/  |_ ___.__.
@@ -16,6 +16,7 @@ __________.__        __
  |    |   \  \  ___/|  |  \___  |
  |____|_  /__|\___  >__|  / ____|
         \/        \/      \/
+
 ```
 EOF
       assert_output(aa) { @bot.receive body: "@riety aa #{@art}", from: @from, to: @to }
