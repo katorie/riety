@@ -9,16 +9,15 @@ module Riety
       )
 
       def celebrate(message)
-        p '======'
         name = message[:keyword]
+        message.reply name
         return message.reply '名前を指定してください＼(^o^)／' unless name
-        p '======'
-        p member_list
+        message.reply member_list
         return message.reply member_list if name == 'list'
 
         msg = massage_from(who: name)
-        p '------'
-        p msg
+        message.reply 'hogehoge'
+        message.reply msg
         if msg
           message.reply msg
         else
