@@ -23,7 +23,7 @@ module Riety
 
       private
         def member_list
-          YAML.load_file(file_path).keys
+          YAML.load_file(file_path).keys.join("\n")
         end
 
         def massage_from(who: )
