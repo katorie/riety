@@ -9,10 +9,22 @@ module Riety
       )
 
       def ascii_art(message)
-        message.reply data(message[:keyword])
+        begin
+          message.reply data(message[:keyword])
+        rescue
+          message.reply art_list
+        end
       end
 
       private
+
+        def art_list
+          ls = files.reduce([]) do |arts, f|
+            f.rindex(/\/(.*)\.txt/)
+            arts << "- #{$1}"
+          end
+          "aa の後に:arrow_double_down:のどれかを入力してね:ghost:\n\n" + ls.join("\n")
+        end
 
         def data(name)
           File.open(file_path(name)) do |file|
@@ -26,6 +38,10 @@ EOF
 
         def file_path(name)
           File.join(File.expand_path('../../db/ascii_art', __FILE__), "#{name}.txt")
+        end
+
+        def files
+          Dir.glob(File.expand_path('../../db/ascii_art/*', __FILE__))
         end
     end
   end
