@@ -5,7 +5,7 @@ module Riety
         /aa((\s|　)+(?<keyword>.+))?\z/,
         name: 'ascii_art',
         command: 'aa',
-        description: 'Show ascii_art aa ebi, aa doara'
+        description: 'Show ascii_art aa ebi, aa doala'
       )
 
       def ascii_art(message)
