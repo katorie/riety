@@ -22,13 +22,19 @@ module Riety
       end
 
       private
+
+        def messages
+          @messages ||= YAML.load_file(file_path)
+        end
+
         def member_list
-          YAML.load_file(file_path).keys.join("\n")
+          messages.keys.join("\n")
         end
 
         def massage_from(who: )
-          @messages ||= YAML.load_file(file_path)
-          @messages[who]
+          messages[who]
+        end
+
         end
 
         def file_path
